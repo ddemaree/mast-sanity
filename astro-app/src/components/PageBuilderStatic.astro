@@ -1,0 +1,39 @@
+---
+import {sectionNeedsHydration} from '@mast/blocks'
+import {SectionIsland} from './SectionIsland'
+import {sanityConfig} from '../lib/sanity'
+
+interface Props {
+  page: {
+    _id: string
+    _type: string
+    pageBuilder?: Array<{_key: string; _type: string; [k: string]: unknown}> | null
+  } | null
+  draft?: boolean
+}
+
+const {page, draft = false} = Astro.props
+const sections = page?.pageBuilder ?? []
+---
+
+{
+  sections.map((section, index) => {
+    const needsHydration = draft || sectionNeedsHydration(section)
+    return needsHydration ? (
+      <SectionIsland
+        client:visible
+        block={section}
+        index={index}
+        sanityConfig={sanityConfig}
+        visualEditingEnabled={draft}
+      />
+    ) : (
+      <SectionIsland
+        block={section}
+        index={index}
+        sanityConfig={sanityConfig}
+        visualEditingEnabled={false}
+      />
+    )
+  })
+}

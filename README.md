@@ -162,22 +162,24 @@ npm run dev
 
 - **Sanity Studio:** http://localhost:3334
 - **Next.js Frontend:** http://localhost:3001
+- **Astro consumer:** http://localhost:3002 (`npm run dev:astro`)
 
 ## Development
 
 ### Running Dev Servers
 
 ```shell
-npm run dev           # Run both Studio and Next.js
-npm run dev:studio    # Run only Sanity Studio
-npm run dev:next      # Run only Next.js frontend
+npm run dev           # Run Studio, Next.js, and Astro (dev:* glob)
+npm run dev:studio    # Run only Sanity Studio (port 3334)
+npm run dev:next      # Run only Next.js frontend (port 3001)
+npm run dev:astro     # Run only Astro consumer (port 3002)
 ```
 
 ### Checks
 
 ```shell
 npm run lint          # ESLint on the frontend
-npm run type-check    # TypeScript in both workspaces
+npm run type-check    # TypeScript across workspaces (incl. @mast/blocks, astro-app)
 npm run format        # Prettier
 ```
 
