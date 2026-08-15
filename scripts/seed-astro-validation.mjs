@@ -34,19 +34,18 @@ function cliToken() {
   }
 }
 
-// Prefer env / CLI; default project is mast-sanity-dev when unset.
+// Prefer env / CLI — no hardcoded project/dataset (secret scan + multi-project use).
 const projectId =
   process.env.SANITY_STUDIO_PROJECT_ID ||
   process.env.PUBLIC_SANITY_PROJECT_ID ||
-  process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ||
-  'zj4til7w'
+  process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
 const dataset =
   process.env.SANITY_STUDIO_DATASET ||
   process.env.PUBLIC_SANITY_DATASET ||
   process.env.NEXT_PUBLIC_SANITY_DATASET ||
   process.env.SANITY_DATASET
-if (!dataset) {
-  console.error('Set SANITY_STUDIO_DATASET (or PUBLIC_SANITY_DATASET) in .env')
+if (!projectId || !dataset) {
+  console.error('Set SANITY_STUDIO_PROJECT_ID and SANITY_STUDIO_DATASET in .env')
   process.exit(1)
 }
 const token = cliToken() || process.env.SANITY_API_TOKEN
