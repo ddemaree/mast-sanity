@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import {CaretDown} from '@phosphor-icons/react/dist/ssr'
 import {urlForImage} from '@/sanity/lib/utils'
-import {Button} from './ui/button'
+import {Button} from '@mast/blocks/ui/button'
 import {cn} from '@/lib/utils'
 
 // Types for the navigation data (nullable to match GROQ query results)

@@ -1,8 +1,7 @@
 'use client'
 
 import {VisualEditing} from 'next-sanity/visual-editing'
-import {customOverlayComponents} from './CustomOverlay'
-import {BlockContextBridge} from './BlockContextBridge'
+import {customOverlayComponents, BlockContextBridge} from '@mast/blocks/overlays'
 
 export default function VisualEditingWithPlugins() {
   return (

@@ -1,7 +1,7 @@
 import {draftMode} from 'next/headers'
 import {notFound} from 'next/navigation'
 
-import Section from '@/app/components/blocks/Section'
+import {TemplateSectionPreview} from '../TemplateSectionPreview'
 import {sanityFetch} from '@/sanity/lib/live'
 import {sectionTemplateQuery} from '@/sanity/lib/queries'
 
@@ -33,11 +33,13 @@ export default async function SectionTemplatePreview(props: Props) {
     verticalAlign: template.verticalAlign ?? undefined,
     maxWidth: template.maxWidth ?? undefined,
     paddingTop: template.paddingTop ?? undefined,
+    isGlobal: true,
+    sourceId: template._id,
+    sourceType: 'sectionTemplate',
   }
 
   return (
     <main className="min-h-screen">
-      {/* Template Info Header (only in non-draft mode or as a subtle indicator) */}
       {!isDraftMode && (
         <div className="bg-blue-50 border-b border-blue-200 px-4 py-2">
           <div className="container mx-auto">
@@ -51,13 +53,7 @@ export default async function SectionTemplatePreview(props: Props) {
         </div>
       )}
 
-      {/* Render the section */}
-      <Section
-        block={sectionBlock}
-        index={0}
-        pageId={isDraftMode ? template._id : undefined}
-        pageType={isDraftMode ? 'sectionTemplate' : undefined}
-      />
+      <TemplateSectionPreview block={sectionBlock} isDraftMode={isDraftMode} />
     </main>
   )
 }

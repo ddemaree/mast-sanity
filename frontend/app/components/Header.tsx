@@ -6,7 +6,7 @@ import Image from 'next/image'
 import {List, X, CaretDown} from '@phosphor-icons/react/dist/ssr'
 
 import {linkResolver, urlForImage} from '@/sanity/lib/utils'
-import {Button} from './ui/button'
+import {Button} from '@mast/blocks/ui/button'
 
 interface NavLink {
   _key: string

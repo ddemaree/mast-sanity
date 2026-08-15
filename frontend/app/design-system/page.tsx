@@ -1,15 +1,15 @@
-import {Button} from '@/app/components/ui/button'
-import {Icon} from '@/app/components/ui/Icon'
+import {Button} from '@mast/blocks/ui/button'
+import {Icon} from '@mast/blocks/ui/Icon'
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '@/app/components/ui/accordion'
-import {Divider} from '@/app/components/ui/divider'
-import {Card} from '@/app/components/ui/card'
-import {Eyebrow} from '@/app/components/ui/eyebrow'
-import {Breadcrumb} from '@/app/components/ui/breadcrumb'
+} from '@mast/blocks/ui/accordion'
+import {Divider} from '@mast/blocks/ui/divider'
+import {Card} from '@mast/blocks/ui/card'
+import {Eyebrow} from '@mast/blocks/ui/eyebrow'
+import {Breadcrumb} from '@mast/blocks/ui/breadcrumb'
 import {
   Table,
   TableHeader,
@@ -18,9 +18,9 @@ import {
   TableHead,
   TableCell,
   TableCaption,
-} from '@/app/components/ui/table'
-import {Slider, SliderSlide} from '@/app/components/ui/slider'
-import {Tabs, TabsList, TabsTrigger, TabsContent} from '@/app/components/ui/tabs'
+} from '@mast/blocks/ui/table'
+import {Slider, SliderSlide} from '@mast/blocks/ui/slider'
+import {Tabs, TabsList, TabsTrigger, TabsContent} from '@mast/blocks/ui/tabs'
 import {
   Modal,
   ModalTrigger,
@@ -30,9 +30,9 @@ import {
   ModalBody,
   ModalFooter,
   VideoModalContent,
-} from '@/app/components/ui/modal'
-import {InlineVideo} from '@/app/components/ui/inline-video'
-import {Marquee, MarqueeItem} from '@/app/components/ui/marquee'
+} from '@mast/blocks/ui/modal'
+import {InlineVideo} from '@mast/blocks/ui/inline-video'
+import {Marquee, MarqueeItem} from '@mast/blocks/ui/marquee'
 import {ThemeToggle, ThemeToggleCompact} from '@/app/components/ui/theme-toggle'
 import {
   ArrowRight,
