@@ -98,7 +98,9 @@ const linkReference = /* groq */ `
   }
 `
 
-// SmartString field expansion - resolves variable references for text fields
+// SmartString field expansion - resolves variable references for text fields.
+// Legacy content (and some seed scripts) store plain strings; projecting
+// `text{...}` on a string returns null, so normalize both shapes.
 const smartStringFields = /* groq */ `
   ...,
   variableRef->{
@@ -108,6 +110,13 @@ const smartStringFields = /* groq */ `
     variableType,
     textValue
   }
+`
+
+const smartStringProjection = /* groq */ `
+  "text": select(
+    defined(text.mode) => text{ ${smartStringFields} },
+    true => { "mode": "static", "staticValue": text }
+  )
 `
 
 const linkFields = /* groq */ `
@@ -150,15 +159,15 @@ const nestedContentBlockFields = /* groq */ `
     ...,
     _type == "headingBlock" => {
       ...,
-      text{ ${smartStringFields} }
+      ${smartStringProjection}
     },
     _type == "eyebrowBlock" => {
       ...,
-      text{ ${smartStringFields} }
+      ${smartStringProjection}
     },
     _type == "buttonBlock" => {
       ...,
-      text{ ${smartStringFields} },
+      ${smartStringProjection},
       ${linkFields}
     },
     _type == "richTextBlock" => {
@@ -185,15 +194,15 @@ const contentBlockFields = /* groq */ `
     ...,
     _type == "headingBlock" => {
       ...,
-      text{ ${smartStringFields} }
+      ${smartStringProjection}
     },
     _type == "eyebrowBlock" => {
       ...,
-      text{ ${smartStringFields} }
+      ${smartStringProjection}
     },
     _type == "buttonBlock" => {
       ...,
-      text{ ${smartStringFields} },
+      ${smartStringProjection},
       ${linkFields}
     },
     _type == "richTextBlock" => {

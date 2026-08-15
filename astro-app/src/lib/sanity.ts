@@ -17,7 +17,8 @@ export const publishedClient = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn: true,
+  // Skip CDN in local/dev so freshly published content is visible immediately
+  useCdn: import.meta.env.PROD,
   perspective: 'published',
 })
 
