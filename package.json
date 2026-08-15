@@ -35,7 +35,9 @@
     "lint": "npm run lint --workspace=frontend",
     "seed": "node --env-file=.env scripts/seed-starter.mjs",
     "type-check": "npm run type-check --workspaces",
-    "dev:astro": "npm run dev --workspace=astro-app"
+    "dev:astro": "npm run dev --workspace=astro-app",
+    "docker:up": "docker compose up --build",
+    "docker:down": "docker compose down"
   },
   "prettier": "@sanity/prettier-config",
   "devDependencies": {

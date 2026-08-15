@@ -15,6 +15,7 @@ This is a **Mast design system** implementation using:
 ## Development Environment
 
 - Dev servers: frontend on port **3001** (`npm run dev:next`), Studio on port **3334** (`npm run dev:studio`), Astro on port **3002** (`npm run dev:astro`), or `npm run dev` for the parallel `dev:*` set.
+- Docker / OrbStack: from the repo root, `docker compose up --build` (see root `docker-compose.yml`). Build context is the monorepo root so `@mast/blocks` resolves; no host-absolute paths.
 - Point Studio Presentation at Astro with `SANITY_STUDIO_PREVIEW_URL=http://localhost:3002`.
 - Verify changes with `npm run type-check` and `npm run lint`; `npm run build` in each workspace for full verification.
 - Seed scripts live in `/scripts` as `.mjs` ES modules and run with plain `node` (see "Creating Pages via Script" below).

@@ -175,6 +175,21 @@ npm run dev:next      # Run only Next.js frontend (port 3001)
 npm run dev:astro     # Run only Astro consumer (port 3002)
 ```
 
+### Docker / OrbStack
+
+From the **repo root** (not `frontend/` or `studio/`):
+
+```shell
+docker compose up --build
+```
+
+- **Frontend:** http://localhost:3001
+- **Studio:** http://localhost:3334
+
+Compose mounts the monorepo into the containers so `packages/mast-blocks` resolves. Copy `frontend/.env.local` and `studio/.env` from the examples first (or use a root `.env`). No host-absolute paths are required — works the same on Corey's machine, yours, or CI.
+
+Astro is not in Compose yet; run it on the host with `npm run dev:astro` if needed.
+
 ### Checks
 
 ```shell
