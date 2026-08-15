@@ -1,4 +1,4 @@
-import {stegaClean} from 'next-sanity'
+import {stegaClean} from '@sanity/client/stega'
 import {cn} from '@/lib/utils'
 import {Icon, type IconSize, type IconColor} from '@/app/components/ui/Icon'
 import {

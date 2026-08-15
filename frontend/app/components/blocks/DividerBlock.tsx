@@ -1,4 +1,4 @@
-import {stegaClean} from 'next-sanity'
+import {stegaClean} from '@sanity/client/stega'
 import {Divider, type SpacingSize, type DividerColor} from '@/app/components/ui/divider'
 
 interface DividerBlockProps {

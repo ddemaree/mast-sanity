@@ -1,7 +1,7 @@
 'use client'
 
 import {useSyncExternalStore} from 'react'
-import {stegaClean} from 'next-sanity'
+import {stegaClean} from '@sanity/client/stega'
 import {Tabs, TabsList, TabsTrigger, TabsContent, TabsPlayPause} from '../ui/tabs'
 import ContentBlockRenderer from './ContentBlockRenderer'
 

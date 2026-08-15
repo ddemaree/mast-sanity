@@ -8,7 +8,7 @@
  *
  */
 
-import {PortableText, type PortableTextComponents, type PortableTextBlock} from 'next-sanity'
+import {PortableText, type PortableTextComponents, type PortableTextBlock} from '@portabletext/react'
 
 import ResolvedLink from '@/app/components/ResolvedLink'
 import {resolveInlineVariable} from '@/app/lib/resolveContentVariable'

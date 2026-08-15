@@ -1,4 +1,4 @@
-import {stegaClean} from 'next-sanity'
+import {stegaClean} from '@sanity/client/stega'
 import Image from 'next/image'
 import {dataAttr, urlForImage, getBlurDataUrl} from '@/sanity/lib/utils'
 import Row from './Row'

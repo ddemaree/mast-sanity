@@ -1,4 +1,4 @@
-import {stegaClean} from 'next-sanity'
+import {stegaClean} from '@sanity/client/stega'
 import {Card, type CardPadding, type CardVariant} from '@/app/components/ui/card'
 import ContentBlockRenderer from './ContentBlockRenderer'
 

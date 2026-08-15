@@ -1,4 +1,4 @@
-import {stegaClean} from 'next-sanity'
+import {stegaClean} from '@sanity/client/stega'
 import Column from './Column'
 import {parseCustomStyle} from '@/app/lib/parseCustomStyle'
 

@@ -3,7 +3,7 @@
 import {useEffect, useState} from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import {stegaClean} from 'next-sanity'
+import {stegaClean} from '@sanity/client/stega'
 import {createClient} from 'next-sanity'
 
 import {cn} from '@/lib/utils'

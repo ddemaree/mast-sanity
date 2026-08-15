@@ -1,4 +1,4 @@
-import {defineQuery} from 'next-sanity'
+import {defineQuery} from 'groq'
 
 export const settingsQuery = defineQuery(`*[_type == "settings"][0]`)
 

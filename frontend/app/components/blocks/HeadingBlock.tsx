@@ -1,5 +1,5 @@
 import {createElement} from 'react'
-import {stegaClean} from 'next-sanity'
+import {stegaClean} from '@sanity/client/stega'
 import {parseCustomStyle} from '@/app/lib/parseCustomStyle'
 import {resolveSmartString} from '@/app/lib/resolveContentVariable'
 import type {SmartString} from '@/app/types/blocks'

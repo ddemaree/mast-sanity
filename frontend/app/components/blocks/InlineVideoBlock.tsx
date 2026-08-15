@@ -1,6 +1,6 @@
 'use client'
 
-import {stegaClean} from 'next-sanity'
+import {stegaClean} from '@sanity/client/stega'
 import {InlineVideo} from '../ui/inline-video'
 import {urlForImage} from '@/sanity/lib/utils'
 

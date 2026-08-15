@@ -1,6 +1,6 @@
 'use client'
 
-import {stegaClean} from 'next-sanity'
+import {stegaClean} from '@sanity/client/stega'
 import {Eyebrow} from '../ui/eyebrow'
 import {parseCustomStyle} from '@/app/lib/parseCustomStyle'
 import {resolveSmartString} from '@/app/lib/resolveContentVariable'

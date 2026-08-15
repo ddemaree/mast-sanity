@@ -1,4 +1,4 @@
-import {stegaClean} from 'next-sanity'
+import {stegaClean} from '@sanity/client/stega'
 import {dataAttr} from '@/sanity/lib/utils'
 import ContentBlockRenderer from './ContentBlockRenderer'
 import ContentBlockOverlay from '@/app/components/overlays/ContentBlockOverlay'

@@ -1,7 +1,7 @@
 'use client'
 
-import {SanityDocument} from 'next-sanity'
-import {useOptimistic} from 'next-sanity/hooks'
+import type {SanityDocument} from '@sanity/client'
+import {useOptimistic} from '@sanity/visual-editing/react'
 import Link from 'next/link'
 
 import BlockRenderer from '@/app/components/BlockRenderer'

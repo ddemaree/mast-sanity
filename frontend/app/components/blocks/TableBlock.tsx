@@ -1,6 +1,6 @@
 'use client'
 
-import {stegaClean} from 'next-sanity'
+import {stegaClean} from '@sanity/client/stega'
 import {
   Table,
   TableHeader,

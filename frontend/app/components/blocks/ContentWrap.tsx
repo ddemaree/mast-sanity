@@ -1,4 +1,4 @@
-import {stegaClean} from 'next-sanity'
+import {stegaClean} from '@sanity/client/stega'
 import ContentBlockRenderer from './ContentBlockRenderer'
 import ContentBlockOverlay from '@/app/components/overlays/ContentBlockOverlay'
 import {parseCustomStyle} from '@/app/lib/parseCustomStyle'

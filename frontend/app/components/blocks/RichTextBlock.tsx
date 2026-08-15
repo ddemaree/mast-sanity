@@ -1,4 +1,5 @@
-import {type PortableTextBlock, stegaClean} from 'next-sanity'
+import {stegaClean} from '@sanity/client/stega'
+import type {PortableTextBlock} from '@portabletext/react'
 import PortableText from '@/app/components/PortableText'
 import {parseCustomStyle} from '@/app/lib/parseCustomStyle'
 

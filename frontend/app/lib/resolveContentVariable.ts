@@ -13,7 +13,7 @@
  * - As link targets (in link fields and annotations)
  */
 
-import {stegaClean} from 'next-sanity'
+import {stegaClean} from '@sanity/client/stega'
 
 // =============================================================================
 // TYPE DEFINITIONS

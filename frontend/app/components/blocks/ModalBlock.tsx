@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 import {useSearchParams} from 'next/navigation'
-import {stegaClean} from 'next-sanity'
+import {stegaClean} from '@sanity/client/stega'
 import {
   Modal,
   ModalTrigger,

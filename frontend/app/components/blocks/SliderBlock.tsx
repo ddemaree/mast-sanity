@@ -1,6 +1,6 @@
 'use client'
 
-import {stegaClean} from 'next-sanity'
+import {stegaClean} from '@sanity/client/stega'
 import Image from 'next/image'
 import {urlForImage, getBlurDataUrl} from '@/sanity/lib/utils'
 import {Slider, SliderSlide} from '../ui/slider'

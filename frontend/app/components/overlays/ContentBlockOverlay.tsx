@@ -1,7 +1,7 @@
 'use client'
 
 import {useState, useEffect, useRef, useId, type ReactNode} from 'react'
-import {useIsPresentationTool} from 'next-sanity/hooks'
+import {useIsPresentationTool} from '@sanity/visual-editing/react'
 import {useOverlayHover} from './OverlayHoverContext'
 import {SANITY_SELECTORS, getBlockLabel, getBlockIcon} from './constants'
 
