@@ -1,0 +1,64 @@
+---
+import '../styles/global.css'
+
+interface Props {
+  title?: string
+  description?: string
+}
+
+const {title = 'Mast', description = 'Mast page builder on Astro'} = Astro.props
+
+const themeScript = `
+  (function() {
+    try {
+      var stored = localStorage.getItem('theme-preference');
+      if (stored === 'light' || stored === 'dark') {
+        document.documentElement.setAttribute('data-theme', stored);
+      }
+    } catch (e) {}
+  })();
+`
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link
+      rel="preload"
+      href="/fonts/GeneralSans-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/GeneralSans-Medium.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <script is:inline set:html={themeScript} />
+  </head>
+  <body class="flex min-h-screen flex-col bg-background text-foreground">
+    <header class="border-b border-border">
+      <div class="container flex items-center justify-between py-4">
+        <a href="/" class="text-lg font-medium tracking-tight">Mast</a>
+        <nav class="flex gap-4 text-sm text-muted-foreground">
+          <a href="/" class="hover:text-foreground">Home</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main" class="flex-1">
+      <slot />
+    </main>
+    <footer class="border-t border-border py-8">
+      <div class="container text-sm text-muted-foreground">
+        Mast blocks · Astro consumer
+      </div>
+    </footer>
+  </body>
+</html>

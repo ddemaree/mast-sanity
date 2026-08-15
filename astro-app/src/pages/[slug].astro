@@ -1,0 +1,38 @@
+---
+export const prerender = false
+
+import Base from '../layouts/Base.astro'
+import PageBuilderStatic from '../components/PageBuilderStatic.astro'
+import {LivePageBuilder} from '../components/LivePageBuilder'
+import {sanityFetch, sanityConfig} from '../lib/sanity'
+import {getPageQuery} from '@mast/blocks/queries'
+
+const {slug} = Astro.params
+if (!slug) {
+  return Astro.redirect('/')
+}
+
+const draft = Astro.cookies.has('mast_draft')
+
+const page = await sanityFetch<any>({
+  query: getPageQuery,
+  params: {slug},
+  draft,
+})
+
+if (!page) {
+  return new Response(null, {status: 404, statusText: 'Not Found'})
+}
+
+const title = page?.name || slug
+---
+
+<Base title={title}>
+  {
+    draft ? (
+      <LivePageBuilder client:load page={page} sanityConfig={sanityConfig} />
+    ) : (
+      <PageBuilderStatic page={page} draft={false} />
+    )
+  }
+</Base>

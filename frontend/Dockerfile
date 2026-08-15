@@ -1,18 +1,23 @@
+# Dev image for the Next.js frontend workspace.
+# Build context must be the monorepo root (see docker-compose.yml).
 FROM node:22-alpine
 
 WORKDIR /app
 
-# Copy package files
-COPY package.json ./
+# Workspace manifests only — keeps dependency layers cacheable
+COPY package.json package-lock.json ./
+COPY frontend/package.json ./frontend/
+COPY studio/package.json ./studio/
+COPY packages/mast-blocks/package.json ./packages/mast-blocks/
+COPY astro-app/package.json ./astro-app/
 
-# Install dependencies with legacy peer deps to handle version conflicts
-RUN npm install --legacy-peer-deps
+RUN npm ci
 
-# Copy the rest of the application
-COPY . .
+# Sources needed when running the image without a bind mount.
+# In compose, the repo is mounted over /app for live reload.
+COPY packages/mast-blocks ./packages/mast-blocks
+COPY frontend ./frontend
 
-# Expose the Next.js dev server port
 EXPOSE 3001
 
-# Start the dev server (skip typegen predev script in Docker)
-CMD ["npx", "next", "dev", "--turbopack", "-p", "3001", "--hostname", "0.0.0.0"]
+CMD ["npm", "run", "dev:docker", "--workspace=frontend"]

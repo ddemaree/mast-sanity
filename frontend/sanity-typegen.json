@@ -1,5 +1,8 @@
 {
-  "path": "./sanity/**/*.{ts,tsx,js,jsx}",
+  "path": [
+    "./sanity/**/*.{ts,tsx,js,jsx}",
+    "../packages/mast-blocks/src/**/*.{ts,tsx}"
+  ],
   "schema": "../studio/schema.json",
   "generates": "./sanity.types.ts",
   "overloadClientMethods": true

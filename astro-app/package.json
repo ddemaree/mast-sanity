@@ -1,0 +1,31 @@
+{
+  "name": "astro-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --port 3002",
+    "build": "astro build",
+    "preview": "astro preview --port 3002",
+    "type-check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/node": "^9.5.0",
+    "@astrojs/react": "^4.4.2",
+    "@astrojs/sitemap": "^3.6.0",
+    "@mast/blocks": "*",
+    "@sanity/client": "^7.23.2",
+    "@sanity/preview-url-secret": "^4.0.8",
+    "@sanity/visual-editing": "^5.5.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^5.16.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "tailwindcss": "^4.3.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.5",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "5.9.3"
+  }
+}

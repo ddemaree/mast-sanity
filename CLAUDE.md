@@ -6,16 +6,29 @@ This document contains project-specific instructions and context for Claude Code
 
 This is a **Mast design system** implementation using:
 
-- **Frontend**: Next.js 16 with App Router
+- **Frontend**: Next.js 16 with App Router (`frontend/`)
+- **Astro consumer**: Astro 5 hybrid app proving `@mast/blocks` portability (`astro-app/`, port **3002**)
+- **Shared page builder**: private workspace package `@mast/blocks` (`packages/mast-blocks`)
 - **CMS**: Sanity Studio v6 with Visual Editing/Presentation mode
-- **Styling**: Tailwind CSS v4 with CSS-first configuration
+- **Styling**: Tailwind CSS v4 with CSS-first configuration (`frontend/app/globals.css` imports `@mast/blocks/styles.css`)
 
 ## Development Environment
 
-- Dev servers: frontend on port **3001** (`npm run dev:next`), Studio on port **3334** (`npm run dev:studio`), or both with `npm run dev`. Docker/OrbStack setups may map these to other host ports.
+- Dev servers: frontend on port **3001** (`npm run dev:next`), Studio on port **3334** (`npm run dev:studio`), Astro on port **3002** (`npm run dev:astro`), or `npm run dev` for the parallel `dev:*` set.
+- Docker / OrbStack: from the repo root, `docker compose up --build` (see root `docker-compose.yml`). Build context is the monorepo root so `@mast/blocks` resolves; no host-absolute paths.
+- Point Studio Presentation at Astro with `SANITY_STUDIO_PREVIEW_URL=http://localhost:3002`.
 - Verify changes with `npm run type-check` and `npm run lint`; `npm run build` in each workspace for full verification.
 - Seed scripts live in `/scripts` as `.mjs` ES modules and run with plain `node` (see "Creating Pages via Script" below).
 - Machine-specific overrides belong in `CLAUDE.local.md` (gitignored), not this file.
+
+### `@mast/blocks` host adapter
+
+Page-builder components do not import `next/image`, `next/link`, or `NEXT_PUBLIC_*` env vars. Hosts inject an adapter via `<MastHostProvider>`:
+
+- Next: `frontend/app/lib/mast-adapter.tsx` + `MastHostBoundary` in `layout.tsx`
+- Astro: `astro-app/src/lib/mast-adapter.tsx` + per-section `SectionIsland` / draft `LivePageBuilder`
+
+Each consumer must `@import '@mast/blocks/styles.css'` and add `@source` pointing at `packages/mast-blocks/src` so Tailwind scans package classes.
 
 ## Sanity Content Architecture
 
@@ -294,9 +307,9 @@ When adding JSX to Sanity schemas:
 
 ### Tailwind CSS v4
 
-- CSS-first configuration in `frontend/app/app.css`
-- Custom properties defined with `@theme` directive
-- No `tailwind.config.js` - all config in CSS
+- CSS-first configuration in `frontend/app/globals.css` (imports `@mast/blocks/styles.css`)
+- Custom properties defined with `@theme` directive in the package styles
+- No `tailwind.config.js` - all config in CSS; consumers add `@source` for the package
 
 ### Design Tokens
 

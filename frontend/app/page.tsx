@@ -1,7 +1,7 @@
 import type {Metadata} from 'next'
 import {draftMode} from 'next/headers'
 
-import PageBuilderPage from '@/app/components/PageBuilder'
+import {PageBuilder as PageBuilderPage} from '@mast/blocks'
 import {sanityFetch} from '@/sanity/lib/live'
 import {getPageQuery} from '@/sanity/lib/queries'
 import {GetPageQueryResult} from '@/sanity.types'

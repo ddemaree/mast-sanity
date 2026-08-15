@@ -6,7 +6,7 @@ import {Suspense} from 'react'
 
 import Avatar from '@/app/components/Avatar'
 import {MorePosts} from '@/app/components/Posts'
-import PortableText from '@/app/components/PortableText'
+import {PortableText} from '@mast/blocks'
 import {sanityFetch} from '@/sanity/lib/live'
 import {postPagesSlugs, postQuery} from '@/sanity/lib/queries'
 import {resolveOpenGraphImage, urlForImage} from '@/sanity/lib/utils'
